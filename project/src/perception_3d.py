@@ -4,6 +4,9 @@ from typing import Iterable
 
 import open3d as o3d
 from tqdm.auto import trange
+import matplotlib
+import numpy as np
+import cv2
 
 
 @dataclass
