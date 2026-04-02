@@ -71,6 +71,8 @@ def main(
         # YOUR CODE HERE: do whatever to populate the list of vehicles for this frame. You may use
         # any functions available in open3d for background subtraction, road surface detection,
         # clustering, etc.
+        plane_model, inliers = o3d.geometry.PointCloud.segment_plane(pcd, ransac_n=3, num_iterations=1000)
+        select_by_index = pcd.select_by_index(inliers)
 
         # Write list of vehicles as a CSV
         write_csv_helper(output_path / f"{frame_number}.csv", vehicles)
